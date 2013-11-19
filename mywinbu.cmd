@@ -1,17 +1,14 @@
 @echo off
 cls
 
-if %1.==. %0 z y x w v u t s r q p o n m l k j i h g f e d c b a
+REM 01 13489509348503
+REM 02 23489509348503
+REM 03 33489509348503
+REM 04 43489509348503
+REM 05 53489509348503
 
-:LOOP
-if exist %1:\WindowsImageBackup\. goto FOUND
-shift
-if not %1.==. goto LOOP
-
-echo Drive with \WindowsImageBackup directory not found 
-goto DONE
-
-:FOUND
-wbadmin start backup -backuptarget:%1: -include:c: -systemState -allCritical -vssFull -quiet
-
-:DONE
+for /F "tokens=1,2,3" %%A in (%0) do (
+  if %%A.==REM. (
+    echo wbadmin start backup -backuptarget:\\?\%%C\ -include:c:,d:,e:,f: -systemState -allCritical -vssFull
+  )
+)
