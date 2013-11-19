@@ -1,14 +1,24 @@
 @echo off
+
 cls
 
-REM 01 13489509348503
-REM 02 23489509348503
-REM 03 33489509348503
-REM 04 43489509348503
-REM 05 53489509348503
+REM 01 \\?\Volume{15e9405a-49a8-11e3-a03d-6805ca013446}\
+REM 02
+REM 03 \\?\Volume{15e94125-49a8-11e3-a03d-6805ca013446}\
+REM 04 \\?\Volume{15e941d8-49a8-11e3-a03d-6805ca013446}\
+REM 05 \\?\Volume{aa863426-4d05-11e3-a5b2-6805ca013446}\
+REM 06 \\?\Volume{aa863522-4d05-11e3-a5b2-6805ca013446}\
+REM 07 \\?\Volume{5f3abba0-4fa8-11e3-95c9-6805ca013446}\
+REM 08 \\?\Volume{5f3abc1a-4fa8-11e3-95c9-6805ca013446}\
+REM 09
+REM 10
+REM 11 \\?\Volume{15e94024-49a8-11e3-a03d-6805ca013446}\
+REM 12 \\?\Volume{15e94046-49a8-11e3-a03d-6805ca013446}\
 
 for /F "tokens=1,2,3" %%A in (%0) do (
   if %%A.==REM. (
-    echo wbadmin start backup -backuptarget:\\?\%%C\ -include:c:,d:,e:,f: -systemState -allCritical -vssFull
+    if exist %%C (
+      echo wbadmin start backup -backuptarget:%%C -include:c:,e:,y: -allCritical -vssFull -quiet
+    )
   )
 )
