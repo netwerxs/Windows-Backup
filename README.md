@@ -1,16 +1,20 @@
 # WBADMIN #
-Windows Backup Admin comes with newer Windows operating systems. However it seems that server systems have more features than desktop system. Windows 7 has less functionality than Windows Server 2012 Essentials, surprisingly Windows 7 has more features than Windows 8. I do not know why MS would degrade Windows Backup in Win 8 but there you go.
+Windows Backup Admin comes with newer Windows operating systems. However it seems that wbadmin on server systems have more features than wbadmin on desktop system. Windows 7 has less functionality than Windows Server 2012 Essentials, surprisingly Windows 7 has more features than Windows 8. I do not know why MS would degrade Windows Backup on the desktop but there you go.
 
-To backup desktops I use and recommend Macrium Reflect Professional. Macrium has a server backup solution and cheap compared to what I used to pay for Symantec System Recovery however I prefer Windows Backup over Symantec and Acronis at any price.
+To backup desktops I use and recommend Macrium Reflect Professional.
+
+Macrium has a server backup product that is cheap compared to what I used to pay for Symantec System Recovery Server however I prefer Windows Backup over Symantec and Acronis at any price.
 
 Having said all that the Windows GUI to schedule your backup is a nightmare and is not usable. I have figured out how to take full control of Windows Backup and it does not include using the GUI to schedule your nightly server backup.
 
-## Ingrediants ##
+## Ingredients ##
 
 - Windows Server 2008, 2008R2, 2011 Essentials, 2012 Essentials, 2012 Standard (tested)
-- Free USB 2.0 port
+- A USB 2.0 port
 - [Hard drive dock](http://www.google.ca/search?q=hard+drive+dock)
 - Assortment of hard drives, new or used
+- or some USB 'Passport' type drives
+- Labels to identify your drives eg: "Backup Drive No. 02"
 
 ## Instructions ##
 
@@ -30,7 +34,7 @@ REM 03 \\?\Volume{15e941d8-49a8-11e3-a03d-6805ca013446}\
 REM 04 \\?\Volume{aa863426-4d05-11e3-a5b2-6805ca013446}\
 REM 05 \\?\Volume{15e94125-49a8-11e3-a03d-6805ca013446}\
 
-These lines must match the USB drives that you have. Use 'Disk Management' to delete the volume(s) on your USB backup drives. Then create a New Simple Volume, do not assign a drive letter or drive path and make the Volume Label DISK01.
+These lines must match the USB drives that you have. Use 'Disk Management' to delete the volume(s) on your USB backup drives. Then create a New Simple Volume, do not assign a drive letter or drive path and do make the Volume Label DISK01. You will reformat all your USB drives like this but Volume Label them DISK02, DISK03, DISK04 and so on.
 
 Don't get Volume Label confused with Volume Name.
 
@@ -85,8 +89,8 @@ tokens 1 2 and 3
 3 - \\?\Volume{fdc7f40c-158a-11e3-93ee-806e6f6e6963}\
 
 %%A
-When following tokens=1,2,3 %%A will equal token 1 (REM) and magically %%B wi9ll equal token 2 %%C = token 3
+When following tokens=1,2,3 %%A will equal token 1 (REM) and magically %%B will equal token 2 and %%C = token 3
 
-%0 in windows batch files this is the name of the batch file
+%0 - In windows batch files this equals the name of the batch file
 
 Please study the batch file, you'll see what's happening.
