@@ -101,3 +101,7 @@ tokens 1 2 and 3
 %0 - In windows batch files this equals the name of the batch file
 
 Please study the batch file, you'll see what's happening.
+
+## Nightly Backup ##
+
+Schedule c:\windows\system32\mywinbu.cmd to run every night at 10:00 PM. All you need to do is change the backup brive before 10:00 PM. MyWinBU.cmd will find the drive based on it's Volume Name and then do an image backup of your server drives to the Volume Name usb drive. If you have enabled Shadow Copies on your server disks (not the backup drives) then you will get incremental backups which is real nice. 
